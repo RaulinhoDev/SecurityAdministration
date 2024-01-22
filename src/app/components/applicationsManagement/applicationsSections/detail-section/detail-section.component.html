@@ -1,0 +1,23 @@
+<br><br>
+<div class="title">
+    <h1>Section Detail</h1>
+</div>
+<br><br><br><br>
+
+<app-spinner *ngIf="loading" ></app-spinner>
+<div *ngIf="section != null" class="container">
+    <mat-card class="card">
+        <mat-card-title>{{ section.Section }}</mat-card-title>
+        <br>
+        <mat-card-content>
+            <p><strong>Code: </strong>{{ section.Code }}</p>
+        </mat-card-content>
+        <mat-card-content>
+            <p><strong>Application: </strong>{{ section.NameModule }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="toList()" mat-raised-button>Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+

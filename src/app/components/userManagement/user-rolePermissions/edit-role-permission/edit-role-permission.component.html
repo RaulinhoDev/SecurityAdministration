@@ -1,0 +1,56 @@
+<br>
+<div class="title">
+  <h1>Edit Role Permissions</h1>
+</div>
+<br>
+
+<div class="container">
+  <mat-card class="card mt-8">
+    <form [formGroup]="myform">
+      <div class="three-columns">
+        <!-- Parte izquierda - Nombre del Rol -->
+        <div class="left-column">
+          <h2>Role</h2>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="ApplicationRoleId" [value]="roleWithPermissions.RoleName" readonly>
+            <mat-hint></mat-hint>
+          </mat-form-field>
+        </div>
+
+        <!-- Parte central - Lista de permisos actuales -->
+        <div class="center-column">
+          <div class="sticky-header">
+            <div class="permissions-header">
+              <h2>Permissions</h2>
+              <button mat-button color="primary" (click)="openEditPermissionsModal()">Edit Permissions</button>
+            </div>
+            <h3>Current permissions:</h3>
+          </div>
+          <ul class="permissions-list">
+            <li *ngFor="let permission of roleWithPermissions.Permissions">
+              {{ permission }}
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Parte derecha - Nueva lista para permisos seleccionados desde el modal -->
+        <div class="right-column">
+          <div class="sticky-header">
+            <h3>New permissions for: <strong>{{ roleWithPermissions.RoleName }}</strong></h3>
+          </div>
+          <ul class="selected-permissions-list">
+            <li *ngFor="let permission of selectedPermissionsFromModal">
+              {{ permission.name }}
+            </li>
+          </ul>
+        </div>
+        
+        </div>
+        
+        <div class="button-container">
+          <button class="button-save" [disabled]="!selectedPermissionsFromModal.length || myform.invalid" mat-button color="primary" (click)="guardarRol()">Save</button>
+          <button class="button-save" [disabled]="myform.invalid" mat-button color="primary" (click)="toListRolePermission()">Return</button>
+        </div>
+    </form>
+  </mat-card>
+</div>

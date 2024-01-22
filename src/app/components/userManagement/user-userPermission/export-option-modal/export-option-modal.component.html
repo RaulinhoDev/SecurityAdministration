@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Select an option to export</h1>
+<div mat-dialog-actions class="modal-actions">
+  <div class="export-options">
+    <button mat-button class="export-to-excel-button" (click)="exportToExcel()">Export to Excel</button>
+    <button mat-button class="export-to-pdf-button" (click)="exportToPDF()">Export as PDF</button>
+  </div>
+  <button mat-button (click)="closeDialog()" class="cancel-button">Cancel</button>
+  <p class="export-message">The file will be saved in your Downloads folder.</p>
+</div>

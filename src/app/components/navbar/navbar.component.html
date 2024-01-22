@@ -1,0 +1,53 @@
+<mat-toolbar class="title2">
+  <div class="logo-container">
+    <img src="assets/lagrecia.png" routerLink="/home" alt="Logo" class="logo-image">
+  </div>
+  <div>
+    <a class="text-header" routerLink="/home">Security Administration</a>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container [@.disabled]="true">
+  <mat-sidenav opened mode="side">
+    <div class="custom-list-item">
+      <div class="header-content">
+        <div class="icon">
+          <img src="assets/aplicacionbw.png" class="icon" routerLink="/menuApp">
+        </div>
+        <a routerLink="/menuApp" class="custom-link">Application Management</a>
+      </div>
+    </div>
+    <mat-list>
+      <mat-list-item class="custom-list-item">
+        <a routerLink="/list-applications" class="custom-link">Applications</a>
+      </mat-list-item>
+      <mat-list-item class="custom-list-item">
+        <a routerLink="/list-modules" class="custom-link">Modules</a>
+      </mat-list-item>
+      <mat-list-item class="custom-list-item">
+        <a routerLink="/list-sections" class="custom-link">Sections</a>
+      </mat-list-item>
+      <mat-list-item class="custom-list-item">
+        <a routerLink="/list-permissions" class="custom-link">Permissions</a>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="custom-list-item">
+      <div class="header-content">
+        <div class="icon">
+          <img src="assets/grupos.png" class="icon" routerLink="/user-management">
+        </div>
+          <a routerLink="/user-management" class="custom-link">User Management</a>
+      </div>
+    </div>
+    <mat-list>
+      <mat-list-item class="custom-list-item">
+        <a routerLink="/list-user" class="custom-link">Users</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

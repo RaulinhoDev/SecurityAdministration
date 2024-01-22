@@ -1,0 +1,119 @@
+
+.container {
+  display: flex;
+}
+
+.card {
+  flex: 2; 
+  margin: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.user-card,
+.role-permissions-card,
+.access-card {
+  flex: 1; 
+  margin: 0 15px; 
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.edit-assign-link {
+  margin-left: 15px; 
+  color: #007bff; 
+  cursor: pointer; 
+}
+
+
+.mat-tab-body-wrapper {
+  height: 300px; 
+}
+
+.mat-tab-group {
+  height: 500px; 
+  width: 650px;
+}
+
+.mat-tab-header {
+  height: 50px; 
+}
+
+.mat-tab-label {
+  min-width: 150px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px; 
+}
+
+.access-card h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+.access-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.access-card li {
+  margin-bottom: 20px;
+}
+
+.access-card h3, .access-card p {
+  margin: 0;
+}
+
+.access-card ol {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.access-card ol li {
+  margin-bottom: 5px;
+}
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, #ccc, #888, #ccc); 
+  margin: 10px 0;
+}
+
+.add-access-container {
+  text-align: right;
+}
+
+.button-in-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-in-card button {
+  align-self: flex-end;
+  margin-top: 10px; 
+}
+
+.permission-list {
+  max-height: 200px;
+  overflow-y: auto;
+}

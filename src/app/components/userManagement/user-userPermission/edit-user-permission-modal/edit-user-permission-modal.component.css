@@ -1,0 +1,65 @@
+.selected-permissions-container {
+    max-height: 200px;
+    position: relative; 
+  }
+  
+  .selected-permissions-list {
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+  }
+  
+  .sticky-header {
+    position: sticky;
+    top: 0; 
+    background-color: white; 
+    z-index: 1;
+  }
+  .selected-permissions-container {
+    max-height: 200px;
+    position: relative; 
+}
+
+.selected-permissions-list {
+    height: 150px; 
+    overflow-y: auto; 
+    margin-bottom: 15px; 
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: white; 
+    z-index: 1;
+}
+
+.accept-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.accept-button-container button {
+  margin: 0 5px; 
+}
+
+.custom-input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+  }
+  
+  .custom-input:focus {
+    outline: 10px; 
+    border-color: #007bff;
+  }
+
+  .permissions-dialog {
+    width: 400px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+  }
+

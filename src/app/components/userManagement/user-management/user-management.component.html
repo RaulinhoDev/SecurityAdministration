@@ -1,0 +1,18 @@
+<br><br>
+<div class="title-title">
+    <h1>Users & Roles Management</h1>
+</div>
+<div>
+    <mat-tab-group (selectedTabChange)="onTabChanged($event)">
+        <mat-tab label="Users">
+            <ng-container>
+                <router-outlet></router-outlet>
+            </ng-container>
+        </mat-tab>
+        <mat-tab label="Roles">
+            <ng-container>
+                <router-outlet></router-outlet>
+            </ng-container>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,52 @@
+table {
+    width: 100%;
+  }
+  
+.container {
+    margin: 0 20%;
+}
+
+td, th {
+    width: 15%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+.delete {
+    cursor: pointer;
+    color: #E15639;
+}
+
+.edit {
+    cursor: pointer;
+    color: #187880;
+}
+
+.search {
+    cursor: pointer;
+}
+
+.button-back {
+    display: flex;
+    padding: 7px;
+    margin-left: 20px; /* Ajusta este valor según sea necesario */
+    margin-right: 10px; /* Agrega un pequeño margen derecho */
+    background-color: rgb(221, 179, 87);
+  }
+  
+  .button-back strong {
+    margin-left: 5px; /* Espacio entre el icono y el texto */
+  }
+  
+  .material-symbols-outlined {
+    vertical-align: middle; /* Alinea verticalmente el icono */
+  }
+  
+
+.agregar {
+    background-color: rgb(81, 158, 86);
+    color: white;
+}

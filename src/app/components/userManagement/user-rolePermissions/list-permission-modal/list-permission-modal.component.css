@@ -1,0 +1,39 @@
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modal-content {
+  max-height: 200px; /* o la altura que desees */
+  overflow-y: auto; /* Agrega scroll vertical si es necesario */
+  margin-bottom: 20px;
+}
+
+.no-permissions {
+  color: #888;
+  font-style: italic;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.close-btn {
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  padding: 5px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto; /* Añade esta línea para centrar horizontalmente */
+}
+
+.close-btn:hover {
+  background-color: #dedddd;
+}

@@ -1,0 +1,22 @@
+<br><br>
+<div class="title">
+    <h1>Module Detail</h1>
+</div>
+<br><br><br><br>
+
+<app-spinner *ngIf="loading" ></app-spinner>
+<div *ngIf="module != null" class="container">
+    <mat-card class="card">
+        <mat-card-title>{{ module.Module }}</mat-card-title>
+        <br>
+        <mat-card-content>
+            <p><strong>Code: </strong>{{ module.Code }}</p>
+        </mat-card-content>
+        <mat-card-content>
+            <p><strong>Application: </strong>{{ module.NameApplication }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="toList()" mat-raised-button>Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

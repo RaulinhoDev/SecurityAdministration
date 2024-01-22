@@ -1,0 +1,52 @@
+.title {
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 36px; /* Ajusta el tamaño según tus preferencias */
+  margin-bottom: 10px; /* Puedes ajustar el margen inferior según tus preferencias */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 20%;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-title-container {
+  margin: 10px;
+}
+
+.card-title {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #000000;
+  text-decoration: none;
+  display: block;
+}
+
+.card-title:hover {
+  color: #000000;
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+}

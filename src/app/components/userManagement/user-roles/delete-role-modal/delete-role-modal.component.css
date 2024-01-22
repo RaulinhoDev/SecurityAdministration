@@ -1,0 +1,31 @@
+
+.modal-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .modal-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content {
+    margin-bottom: 20px;
+  }
+  
+  .confirm-btn, .cancel-btn {
+    margin-right: 10px;
+  }
+  
+  .confirm-btn {
+    background-color: #ff5252;
+    color: #fff;
+  }
+  
+  .cancel-btn {
+    background-color: #ccc;
+    color: #000;
+  }

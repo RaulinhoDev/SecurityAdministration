@@ -1,0 +1,111 @@
+  .title2 {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(174, 170, 170);
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title2 .logo-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center; 
+  }
+
+  .title2 .text-header {
+    text-decoration: none;
+    color: #000000;
+    font-size: 35px;
+    font-family: 'Josefin Sans';
+    transition: color 0.3s;
+    margin-right: 10px;
+  }
+
+  .title2 .logo-image {
+    height: 85px;
+  }
+
+  /* Estilos para la barra azul del medio */
+  .title-middle {
+    background-color: rgb(0, 26, 157);
+    box-shadow: 7px 0px 20px rgba(0, 0.3, 0.3, 0.3);
+    height: 10px;
+  }
+
+  /* Estilos para el contenido principal */
+  .mat-sidenav-container {
+    height: calc(205vh - 113vh);
+  }
+
+  .mat-sidenav {
+    width: 300px;
+    background-color: rgb(243, 243, 243);
+    box-shadow: 7px 0px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .mat-sidenav-content {
+    transition: margin-left 0.3s;
+  }
+
+  .mat-sidenav.mat-sidenav-opened + .mat-sidenav-content {
+    margin-left: 250px;
+  }
+
+  /* Estilos para la información del usuario */
+  .user-info {
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+
+  /* Estilos para los elementos de la lista personalizada */
+  .custom-list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+
+  .custom-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 17px;
+    transition: color 0.3s;
+    display: flex; /* Alinea los elementos en un contenedor flexible */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+    cursor:pointer;
+  }
+
+  .custom-link:hover {
+    color: #c8c8c8;
+  }
+
+  .custom-list-item button:hover {
+    background-color: #d6d6d6;
+  }
+
+  /* Estilos para los íconos */
+  .icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 0px;
+    cursor:pointer;
+  }
+
+  /* Estilos para agregar sangría a las opciones secundarias */
+  .custom-list-item .custom-link {
+    margin-left: 16px; /* Ajusta la cantidad de sangría según tus preferencias */
+  }
+
+  

@@ -1,0 +1,49 @@
+<div class="permissions-dialog">
+    <h2>Select permissions for: {{ data.userName }}</h2>
+  
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Buscar permisos..."
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearchChange()"
+        class="custom-input" 
+      />
+    </div>
+  
+    <div *ngFor="let permission of filteredPermissions | slice: startIndex : endIndex">
+      <label>
+        <input
+          type="checkbox"
+          [checked]="isSelected(permission)"
+          (change)="togglePermissionSelection(permission)"
+        />
+        {{ permission.Permission }}
+      </label>
+    </div>
+    <mat-paginator
+    [length]="filteredPermissions.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+
+    <br>
+    <h3><strong>Selected Permissions:</strong> {{selectedPermissions.length}}</h3>
+  
+    <div class="selected-permissions-list">
+      <div class="selected-permissions-content">
+        <ol *ngIf="selectedPermissions.length > 0">
+          <li *ngFor="let selectedPermission of selectedPermissions">
+            {{ selectedPermission.Permission }}
+          </li>
+        </ol>
+        <p *ngIf="selectedPermissions.length === 0">No permissions selected.</p>
+      </div>
+    </div>
+  
+    <div class="buttons-container">
+      <button mat-button (click)="closeModal()">Cerrar</button>
+      <button mat-raised-button color="primary" (click)="saveUserPermissions()">Guardar</button>
+    </div>
+  </div>

@@ -1,0 +1,41 @@
+<br><br>
+<div class="title">
+    <h1>Assign Role</h1>
+</div>
+
+<div class="container">
+    <mat-card class="card mt-8">
+        <mat-card-subtitle>
+            UserRole
+        </mat-card-subtitle>
+        <form [formGroup]="myform">
+            <mat-grid-list cols="2" rowHeight="120px"> <!-- Ajusta el valor de rowHeight según tus preferencias -->
+
+                <mat-grid-tile [colspan]="2">
+                    <mat-form-field appearance="outline" class="wider-container">
+                      <mat-label>Name</mat-label>
+                      <input formControlName="Name" matInput maxlength="50" readonly class="wider-input">
+                      <mat-hint></mat-hint>
+                    </mat-form-field>
+                  </mat-grid-tile>
+                  
+                  
+
+                <mat-grid-tile [colspan]="2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Role</mat-label>
+                        <mat-select formControlName="ApplicationRoleId">
+                            <mat-option *ngFor="let userRole of role" [value]="userRole.Id">{{ userRole.RoleName }}</mat-option>
+                        </mat-select>
+                        <mat-hint></mat-hint>
+                    </mat-form-field>
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="2">
+                    <button type="submit" [disabled]="myform.invalid" class="btnAceptar" mat-raised-button color="primary" (click)="SaveUserRole()">Register</button>
+                    <button type="button" class="salir" mat-raised-button color (click)="toUserRole()" style="margin-left: 8px;">Return</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

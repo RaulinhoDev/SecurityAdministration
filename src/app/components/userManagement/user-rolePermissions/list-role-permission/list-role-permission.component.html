@@ -1,0 +1,121 @@
+<br><br>
+<div class="title">
+  <h1>Role Administration</h1>
+  <app-spinner *ngIf="loading"></app-spinner>
+</div>
+
+<div class="table-container">
+  <br><br>
+  <br>
+
+  <div class="table-large table-roles">
+    <h2>All Roles</h2>
+
+    <button mat-raised-button color="primary" (click)="toggleAddRoleForm()">
+      <mat-icon>{{ showAddRoleFormFlag ? 'cancel' : 'add' }}</mat-icon>
+      {{ showAddRoleFormFlag ? 'Cancel' : 'Add Role' }}
+    </button>
+
+    <!-- Formulario para agregar un nuevo rol (inicialmente oculto) -->
+    <div [ngClass]="{'form-animation': true, 'show': showAddRoleFormFlag}">
+      <br>
+      <h3>New Role</h3>
+      <form [formGroup]="newRoleForm" (ngSubmit)="onSubmitNewRole()">
+        <mat-form-field>
+          <mat-label>Role Name</mat-label>
+          <input matInput formControlName="roleName">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="newRoleForm.invalid">Save</button>
+      </form>
+    </div>
+
+    <br>
+
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilterRole($event)" placeholder="Search" #input>
+    </mat-form-field>
+
+    
+    <mat-table [dataSource]="dataSourceRole" class="mat-elevation-z8 scrollable-table">
+
+      <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+        <mat-cell class="list-content scrollable-roles-list" *matCellDef="let element"> {{element.RoleName}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="havePermissions">
+        <mat-header-cell *matHeaderCellDef> Permissions </mat-header-cell>
+        <mat-cell class="list-content scrollable-roles-list" *matCellDef="let element">
+          <div class="permission-status">
+            {{ element.HasPermissions ? 'Already contains permissions' : '' }}
+            <a *ngIf="!element.HasPermissions" (click)="assignPermissions(element.RoleId)" class="with-permissions-link"> Assign Permissions </a>
+          </div>
+        </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell class="list-content scrollable-roles-list" *matCellDef="let element">
+          <button mat-icon-button [matMenuTriggerFor]="actionsMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #actionsMenu="matMenu">
+            <button mat-menu-item (click)="deleteRole(element)">Delete Role</button>
+          </mat-menu>
+        </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumnsRole"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumnsRole;"></mat-row>
+    </mat-table>
+    
+  </div>
+
+  <div class="table-large">
+    <h2>Roles with Permissions</h2>
+    <br><br><br>
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+    </mat-form-field>
+
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+        <mat-cell class="list-content" *matCellDef="let element"> {{element.RoleName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="permissions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <ul *ngIf="element.mostrarPermisos" class="permissions-list">
+            <li *ngFor="let permission of element.Permissions">{{ permission }}</li>
+          </ul>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+
+        <mat-cell *matCellDef="let element" class="mat-column-actions">
+          <a (click)="openPermissionModal(element)" class="with-permissions-linkShow"> Show Permissions </a>
+          <span class="material-symbols-outlined edit" matTooltip="Editar" (click)="editRolePermission(element.ApplicationRoleId)">
+            edit
+          </span>
+        </mat-cell>
+
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+
+
+</div>

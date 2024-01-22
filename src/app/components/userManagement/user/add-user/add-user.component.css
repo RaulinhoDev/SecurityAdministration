@@ -1,0 +1,46 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.optional-indicator {
+    color: #888;
+    font-size: 0.8em;
+}
+
+.mat-form-field-name {
+    width: 100%;
+}
+
+.mat-form-field-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mat-form-field-row .mat-form-field {
+    flex: 1;
+    width: 200px; /* Ancho fijo para los campos, ajusta según tus preferencias */
+    margin-right: 10px; /* Espacio entre los campos, ajusta según tus preferencias */
+}
+
+.fixed-width.mat-form-field {
+    width: 200px; /* O el ancho deseado */
+}
+
+button {
+    margin-right: 8px;
+}
+
+.fixed-width .mat-form-field-wrapper {
+    width: 200px; /* O el ancho deseado */
+}
+
+.mat-grid-tile {
+    display: flex;
+    align-items: center;
+}
+
+.mat-form-field {
+    width: 100%;
+}

@@ -1,0 +1,16 @@
+.search-container {
+margin-bottom: 15px;
+}
+
+.custom-input {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px; 
+}
+
+.custom-input:focus {
+outline: 10px; 
+border-color: #007bff;
+}
+

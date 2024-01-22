@@ -1,0 +1,98 @@
+
+<br><br>
+<div class="title">
+  <h1>User Administration</h1>
+  <button mat-raised-button color="primary" (click)="toUsers()">View All Users</button>
+  <br><br>
+  <app-spinner *ngIf="loading"></app-spinner>
+</div>
+
+<div class="table-container">
+
+    <div class="table-large table-roles">
+        <h2>Users</h2>
+        <mat-form-field>
+          <mat-label>Search</mat-label>
+          <input matInput (keyup)="applyFilterUser($event)" placeholder="Search" #input>
+        </mat-form-field>
+      
+        <mat-table [dataSource]="dataSourceUser" class="mat-elevation-z8 scrollable-table">
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell class="list-content scrollable-roles-list" *matCellDef="let element"> {{element.Name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="space">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef></mat-cell>
+            </ng-container>
+
+          <ng-container matColumnDef="role">
+            <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+            <mat-cell class="list-content scrollable-roles-list" *matCellDef="let element">
+              <span *ngIf="element.ApplicationRoleId !== 0"> Already contains Role </span>
+              <a *ngIf="element.ApplicationRoleId === 0" (click)="assignedRolesModal(element.Id)" class="add-role-link"> Assign Role </a>
+            </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumnsUser"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumnsUser;"></mat-row>
+        </mat-table>
+      </div>
+
+    <div  class="table-large">
+        <h2>Users with Role</h2>
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+        </mat-form-field>
+    
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="index">
+                <th mat-header-cell *matHeaderCellDef> # </th>
+                <td mat-cell *matCellDef="let i = index"> {{ globalIndex(i) }} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="space">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"></td>
+            </ng-container>
+    
+            <ng-container matColumnDef="role">
+              <th mat-header-cell *matHeaderCellDef>Roles</th>
+              <td mat-cell *matCellDef="let user">
+                <ng-container *ngFor="let role of user.Roles; let last = last">
+                  <strong>{{ role.RoleName }}</strong>{{ !last ? ', ' : '' }}
+                </ng-container>
+              </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                    
+                    <span (click)="openEditModal(element)" class="material-symbols-outlined edit" matTooltip="Editar">
+                      edit
+                    </span>
+                </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    
+        <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+    
+</div>
+<br>
+
+
+

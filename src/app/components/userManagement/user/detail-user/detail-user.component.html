@@ -1,0 +1,141 @@
+<br><br>
+<div class="title">
+  <h1>Detail User</h1>
+</div>
+<br>
+
+<app-spinner *ngIf="loading"></app-spinner>
+<div *ngIf="user != null" class="container">
+  <!-- Contenedor para la información del usuario (lado izquierdo) -->
+  <mat-card class="card button-in-card">
+    <button mat-raised-button color="secondary" (click)="exportData()" [disabled]="canExportData()">
+      Export User
+      <mat-icon>vertical_align_bottom</mat-icon>
+    </button>
+    <mat-card-content class="card-content">
+      <div class="card-title-container">
+        <img src="assets/usuarios.png" alt="Logo" class="card-image">
+      </div>
+    </mat-card-content>
+    <mat-card-title class="center-text">{{ user.Name }}</mat-card-title>
+    <br>
+    <mat-card-content>
+      <p><strong>Code: </strong>{{ user.UserName }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p><strong>Email: </strong>{{ user.Email }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p><strong>Phone Number: </strong>{{ user.PhoneNumber }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p><strong>Status: </strong>
+        <span [style.backgroundColor]="user.IsActive ? 'green' : 'red'"
+          [style.color]="user.IsActive ? 'white' : 'white'" [style.padding]="'3px 10px'" [style.borderRadius]="'8px'">
+          {{ user.IsActive ? 'Active' : 'Inactive' }}
+        </span>
+      </p>
+    </mat-card-content>
+    <mat-card-content>
+      <a class="edit-assign-link" (click)="toEditUser()">Edit User</a>
+    </mat-card-content>
+
+    <br>
+    <mat-card-content class="button-container">
+      <button mat-raised-button color="secondary" (click)="toListUser()">Return</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-tab-group>
+    <!-- Pestaña de Roles -->
+    <mat-tab label="Role">
+      <mat-card class="card role-permissions-card">
+        <!-- Contenido de la pestaña Roles -->
+        <mat-card-content *ngIf="userRole && userRole.RoleName">
+          <p>
+            <strong>Role: </strong>{{ userRole.RoleName }}
+            <a class="edit-assign-link" (click)="openEditUserRoleModal()">Change Role</a>
+            <a class="edit-assign-link" (click)="DeleteUserRoleModal()">Remove Role</a>
+              <a class="edit-assign-link" (click)="toEditRole()">Go to edit role permissions</a>
+          </p>
+          <p><strong>Permissions: </strong></p>
+          <ng-container *ngIf="rolePermissions && rolePermissions.length > 0; else noPermissions">
+            <ol>
+              <li *ngFor="let permission of rolePermissions">
+                {{ permission.PermissionName }}
+              </li>
+            </ol>
+          </ng-container>
+          <ng-template #noPermissions>
+            <p>This role has no permissions.</p>
+          </ng-template>
+        </mat-card-content>
+        <mat-card-content *ngIf="!userRole || !userRole.RoleName">
+          <p><strong>Role: </strong> User does not have a role yet.
+            <a class="edit-assign-link" (click)="openAddUserRoleModal()">Assign Role</a>
+          </p>
+          <p><strong>Permissions: </strong> Currently no permissions.</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <!-- Pestaña de Permissions -->
+<mat-tab label="Permissions">
+  <mat-card class="card access-card">
+    <h2 class="permission-header" *ngIf="userPermission && userPermission.length > 0">
+      This user has the following permissions:
+    </h2>
+    <div *ngIf="userPermission && userPermission.length > 0" class="permission-list">
+      <ol>
+        <li *ngFor="let permission of userPermission">
+          {{ permission.PermissionName }}
+        </li>
+      </ol>
+    </div>
+    <div *ngIf="!userPermission || userPermission.length === 0">
+      This user does not have permissions.
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="primary"
+        (click)="userPermission && userPermission.length > 0 ? openEditUserPermissionModal() : openAddUserPermissionModal()">
+        {{ userPermission && userPermission.length > 0 ? 'Edit Permissions' : 'Add Permissions' }}
+      </button>
+    </div>
+  </mat-card>
+</mat-tab>
+    <!-- Pestaña de Access -->
+    <mat-tab label="Access">
+      <mat-card class="card access-card">
+        <ng-container *ngIf="moduleDetailsArray.length > 0; else noAccess">
+          <div class="access-container">
+            <h2>This user has access to the following applications</h2>
+            <ul>
+              <li *ngFor="let application of moduleDetailsArray">
+                <h3><strong>Application:</strong> {{ application.NameApplication }}</h3>
+                <ul>
+                  <li *ngFor="let module of application.Modules; let lastModule = last">
+                    <p><strong>Module:</strong> {{ module.Module }}</p>
+                    <p><strong>Sections:</strong></p>
+                    <ol>
+                      <ng-container *ngFor="let section of module.Sections; let lastSection = last">
+                        <li>
+                          <p>{{ section.Section }}</p>
+                          <!-- Agregar línea divisoria solo si es la última sección del último módulo -->
+                          <div *ngIf="lastModule && lastSection" class="divider"></div>
+                        </li>
+                      </ng-container>
+                    </ol>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+        <ng-template #noAccess>
+          <p>This user currently has no access to any applications.</p>
+        </ng-template>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

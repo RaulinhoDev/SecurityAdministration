@@ -1,0 +1,67 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+    margin: 0 20%;
+}
+
+.title {
+  text-align: left;
+  margin-left: 5%; /* Utilizando un porcentaje para ser más adaptable */
+}
+
+@media (min-width: 768px) {
+  /* Ajusta el margen en pantallas más grandes */
+  .title {
+      margin-left: 5%;
+  }
+}
+
+.title-title {
+  text-align: left;
+  margin-left: 5%; /* Utilizando un porcentaje para ser más adaptable */
+}
+
+@media (min-width: 768px) {
+  /* Ajusta el margen en pantallas más grandes */
+  .title-title {
+      margin-left: 5%;
+  }
+}
+  
+  .title h1 {
+    font-size: 25px; /* Ajusta el tamaño según tus preferencias */
+  }
+
+  .title-title h1 {
+    font-size: 36px; /* Ajusta el tamaño según tus preferencias */
+  }
+
+div.icon-back {
+    cursor: pointer;
+    margin-left: 60px;
+    margin-top: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff; /* Establece el color de fondo inicial */
+    transition: background-color 0.3s ease;
+  }
+  
+  div.icon-back:hover {
+    background-color: #f0f0f0; /* Cambia el color de fondo cuando el mouse está sobre él */
+  }
+  
+  div.icon-back img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 3px; /* Espaciado entre el icono y el texto */
+  }
+  
+  div.icon-back span {
+    font-size: 14px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+  }

@@ -1,0 +1,20 @@
+<br><br>
+<div class="title-title">
+  <h1>Applications Management</h1>
+</div>
+<div>
+  <mat-tab-group (selectedTabChange)="onTabChanged($event)">
+    <mat-tab label="Applications">
+      <router-outlet></router-outlet>
+    </mat-tab>
+    <mat-tab label="Modules">
+      <router-outlet></router-outlet>
+    </mat-tab>
+    <mat-tab label="Sections">
+      <router-outlet></router-outlet>
+    </mat-tab>
+    <mat-tab label="Permissions">
+      <router-outlet></router-outlet>
+    </mat-tab>
+  </mat-tab-group>
+</div>  

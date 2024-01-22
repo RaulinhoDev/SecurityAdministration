@@ -1,0 +1,12 @@
+<div class="modal-container">
+    <h2>Role "{{ roleName }}" created successfully</h2>
+    <p>Do you want to add permissions to this role?</p>
+  
+    <div class="modal-actions">
+      <!-- Agrega un evento click para activar la función confirm() del componente -->
+      <button mat-button color="primary" (click)="confirm()">Add Permissions</button>
+      <!-- Agrega un evento click para activar la función cancel() del componente -->
+      <button mat-button (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+  

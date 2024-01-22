@@ -1,0 +1,69 @@
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  /* Cambia la dirección del contenedor a columna */
+  align-items: center;
+}
+
+.export-options {
+  display: flex;
+  /* Mantiene las opciones de exportación en una fila */
+  margin-bottom: 10px;
+  /* Agrega un margen entre las opciones y el botón Cancel */
+}
+
+.export-to-excel-button,
+.export-to-pdf-button,
+.cancel-button {
+  margin-right: 10px;
+  /* Agrega un margen entre los botones de exportación */
+}
+
+.cancel-button {
+  margin-right: 0;
+  /* Elimina el margen derecho del botón Cancel para que esté alineado a la izquierda */
+}
+
+.export-to-excel-button {
+  position: relative;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.export-to-excel-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent #1abc9c transparent transparent;
+  /* Triángulo en la esquina superior derecha */
+}
+
+/* Estilo para el botón de PDF */
+.export-to-pdf-button {
+  position: relative;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.export-to-pdf-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent #e74c3c transparent transparent;
+  /* Triángulo en la esquina superior derecha */
+}
+
+.export-message {
+  margin-top: 10px;
+  /* Ajusta el margen superior según tus preferencias */
+  font-size: 14px;
+  /* Ajusta el tamaño de la fuente según tus preferencias */
+  color: #777;
+  /* Ajusta el color del texto según tus preferencias */
+}

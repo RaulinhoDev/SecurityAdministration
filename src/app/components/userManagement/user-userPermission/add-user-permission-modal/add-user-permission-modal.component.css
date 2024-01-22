@@ -1,0 +1,41 @@
+.permissions-dialog {
+  width: 400px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+  
+  .selected-permissions-list {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  .buttons-container button {
+    margin: 0 5px; 
+  }
+  
+  .search-container,
+  .custom-input {
+    margin-bottom: 15px;
+  }
+  
+  .custom-input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+  }
+  
+  .custom-input:focus {
+    outline: 10px; 
+    border-color: #007bff;
+  }
+  

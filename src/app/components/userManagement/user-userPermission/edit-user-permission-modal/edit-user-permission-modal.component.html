@@ -1,0 +1,45 @@
+<div class="permissions-dialog">
+  <div class="search-container">
+    <input
+        type="text"
+        placeholder="Buscar permisos..."
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearchChange()"
+        class="custom-input"
+    />
+</div>
+<div *ngFor="let permission of filteredPermissions | slice: startIndex : endIndex">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="isSelected(permission.Permission)"
+        (change)="togglePermissionSelection(permission)"
+      />
+      {{ permission.Permission }}
+    </label>
+  </div>
+  
+  <mat-paginator
+    [length]="filteredPermissions.length"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    (page)="onPageChange($event)"
+  ></mat-paginator>
+
+  <div class="selected-permissions-container">
+    <h3 class="sticky-header">
+      <strong>Selected permissions:</strong> {{ selectedPermissionsInView.length }}
+    </h3>
+    <div class="selected-permissions-list">
+      <li *ngFor="let permission of selectedPermissionsInView; let i = index">
+        {{ i + 1 }}. {{ permission.Permission }}
+      </li>
+      </div>
+  </div>
+  <div class="accept-button-container">
+    <button mat-button (click)="closeModal()">Cerrar</button>
+    <button mat-raised-button color="primary" (click)="acceptChanges()" class="accept-button">Aceptar</button>
+  </div>
+
+</div>
+

@@ -1,0 +1,13 @@
+.card {
+    margin-top: 10px;
+}
+
+.mat-form-field {
+    width: 50%;
+    margin: 5px;
+    text-align: center;
+}
+
+.btnAceptar {
+    margin-right: 5px;
+}

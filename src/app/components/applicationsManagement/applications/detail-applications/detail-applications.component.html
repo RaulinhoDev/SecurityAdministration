@@ -1,0 +1,18 @@
+<br><br>
+<div class="title">
+    <h1>Detail Application</h1>
+</div>
+<br><br><br><br>
+
+<app-spinner *ngIf="loading" ></app-spinner>
+<div *ngIf="application != null" class="container">
+    <mat-card class="card">
+        <mat-card-title>{{ application.Name }}</mat-card-title>
+        <mat-card-content>
+            <p><strong>Code: </strong>{{ application.Code }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="toList()" mat-raised-button>Volver</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

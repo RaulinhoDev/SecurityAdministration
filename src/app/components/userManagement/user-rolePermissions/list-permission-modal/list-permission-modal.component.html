@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Rol: {{ data.roleName }}</h2>
+<div mat-dialog-content>
+  <ng-container *ngIf="data.permissions.length > 0; else noPermissions">
+    <ol class="modal-content">
+      <li *ngFor="let permission of data.permissions">{{ permission }}</li>
+    </ol>
+  </ng-container>
+  <ng-template #noPermissions>
+    <p>No permissions have been assigned for this role.</p>
+  </ng-template>
+</div>
+<div mat-dialog-actions class="button-container">
+  <button mat-button class="close-btn" (click)="closeDialog()">Close</button>
+</div>

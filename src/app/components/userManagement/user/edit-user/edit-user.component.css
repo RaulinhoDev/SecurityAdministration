@@ -1,0 +1,95 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.optional-indicator {
+    color: #888;
+    font-size: 0.8em;
+}
+
+.mat-form-field-name {
+    width: 100%;
+}
+
+.mat-form-field-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.mat-form-field-row .mat-form-field {
+    flex: 1;
+    width: 200px;
+    /* Ancho fijo para los campos, ajusta según tus preferencias */
+    margin-right: 10px;
+    /* Espacio entre los campos, ajusta según tus preferencias */
+}
+
+.fixed-width.mat-form-field {
+    width: 200px;
+    /* O el ancho deseado */
+}
+
+button {
+    margin-right: 8px;
+}
+
+.fixed-width .mat-form-field-wrapper {
+    width: 200px;
+    /* O el ancho deseado */
+}
+
+.mat-grid-tile {
+    display: flex;
+    align-items: center;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-slide-toggle {
+    background-color: #FF5252;
+    /* Rojo por defecto para estado inactivo */
+    color: white;
+    /* Cambia el color del texto */
+    border-radius: 16px;
+    /* Ajusta el valor según tu preferencia para hacer los bordes redondeados */
+    padding: 6px;
+    /* Ajusta el espacio interno según tus preferencias */
+}
+
+.mat-slide-toggle.mat-checked {
+    background-color: #4CAF50;
+    /* Verde cuando está activo */
+}
+
+.mat-slide-toggle-thumb {
+    background-color: #FF5252;
+    /* Cambia el color del pulgar del interruptor para estado inactivo */
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar,
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #4CAF50;
+    /* Cambia el color de la barra y el pulgar del interruptor para estado activo */
+}
+
+.status-label {
+    margin-right: 10px;
+    /* Ajusta el margen derecho según tus preferencias */
+    line-height: 30px;
+    /* Ajusta la altura de línea según tus preferencias */
+    display: inline-block;
+    /* Asegura que la etiqueta y el mat-slide-toggle estén en la misma línea */
+}
+
+.status-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-container {
+    margin-left: auto;
+  }
